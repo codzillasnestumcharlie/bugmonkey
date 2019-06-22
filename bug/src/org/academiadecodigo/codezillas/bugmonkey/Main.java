@@ -3,5 +3,13 @@ package org.academiadecodigo.codezillas.bugmonkey;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Main {
-    Picture
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        
+        game.init();
+
+
+    }
+
 }
