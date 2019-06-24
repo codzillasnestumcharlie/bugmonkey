@@ -1,3 +1,3 @@
-# Simple Graphics Library with Keyboard Events
+Bug Monkey Game by Charlie group
 
-Based on http://horstmann.com/sjsu/graphics/
+Run from Godzilla and Debbug all the pc's.
