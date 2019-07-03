@@ -16,7 +16,7 @@ public class Player {
     public Player() {
         x = 750;
         y = 200;
-        picture = new Picture(x, y, "/resources/Player.png");
+        picture = new Picture(x, y, "resources/Player.png");
         speed = 10;
         direction = Direction.DOWN;
     }
@@ -33,13 +33,13 @@ public class Player {
     public void move() {
         switch (direction) {
             case RIGHT:
-                picture.load("/resources/Player_Right.png");
+                picture.load("resources/Player_Right.png");
                 for (int i = 0; i < speed; i++) {
                     moveRight();
                 }
                 break;
             case LEFT:
-                picture.load("/resources/Player.png");
+                picture.load("resources/Player.png");
                 for (int i = 0; i < speed; i++) {
                     moveLeft();
                 }

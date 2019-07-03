@@ -30,7 +30,7 @@ public class Game implements KeyboardHandler {
     public void init() {
         Music.startMusic();
 
-        Picture canvas = new Picture(0, 0, "/resources/mapBugHunter.png");
+        Picture canvas = new Picture(0, 0, "resources/mapBugHunter.png");
         canvas.draw();
 
         showComputers();
@@ -72,7 +72,7 @@ public class Game implements KeyboardHandler {
     }
 
     private void gameOver() {
-        Picture gameOver = new Picture(450, 30, "/resources/gameover.png");
+        Picture gameOver = new Picture(450, 30, "resources/gameover.png");
         gameOver.draw();
     }
 

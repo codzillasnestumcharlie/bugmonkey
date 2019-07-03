@@ -14,7 +14,7 @@ public class Brigzilla {
         this.speed = 10;
         this.x = 750;
         this.y = 600;
-        picture = new Picture(x, y, "/resources/brigzilla.png");
+        picture = new Picture(x, y, "resources/brigzilla.png");
     }
 
     public void show() {
@@ -105,7 +105,7 @@ public class Brigzilla {
                 }
                 break;
             case LEFT:
-                picture.load("/resources/brigzilla.png");
+                picture.load("resources/brigzilla.png");
                 for (int i = 0; i < speed; i++) {
                     moveLeft();
 
@@ -117,7 +117,7 @@ public class Brigzilla {
                 }
                 break;
             case RIGHT:
-                picture.load("/resources/brigzilla_Right.png");
+                picture.load("resources/brigzilla_Right.png");
 
                 for (int i = 0; i < speed; i++) {
                     moveRight();
