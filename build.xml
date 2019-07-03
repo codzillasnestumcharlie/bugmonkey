@@ -1,34 +1,38 @@
-<?xml version="1.0" ?>
+<project name="BugMonkey" basedir="." default="jarfile">
 
-<project name="simple-graphics" basedir="" default="jarfile">
-
-    <!-- Initialize build properties  -->
-    <target name="init" description="Initializes properties">
-        <property name="project.name" value="simple-graphics" />
-        <property name="src.dir" value="src" />
-        <property name="build.dir" value="build" />
-        <property name="classes.dir" value="build/classes" />
-        <property name="version" value="0.2.1-SNAPSHOT" />
+    <target name="init" description="Init all the properties!">
+        <property name="project.name" value="bug"/>
+        <property name="src.dir" value="src"/>
+        <property name="main.class" value="org.academiadecodigo.codezillas.bugmonkey.Main"/>
+        <property name="build.dir" value="build"/>
+        <property name="classes.dir" value="${build.dir}/classes"/>
+        <property name="resources.dir" value="resources"/>
+        <property name="lib.dir" value="lib"/>
+        <path id="classpath">
+            <fileset dir="${lib.dir}" includes="**/*.jar"/>
+        </path>
     </target>
 
-    <!-- Creates the build directories to hold JAR and Class files -->
-    <target name="prepare" description="Creates the build and classes directories" depends="init">
-        <mkdir dir="build/classes" />
+    <target name="prepare" description="Create directories" depends="init">
+        <mkdir dir="${classes.dir}"/>
     </target>
 
-    <!-- Compiles the source code -->
-    <target name="compile" description="Compiles the code" depends="prepare">
-        <javac includeantruntime="false" srcdir="${src.dir}" destdir="build/classes" />
+    <target name="compile" description="Compiles shit!" depends="prepare">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}">
+            <classpath refid="classpath"/>
+        </javac>
     </target>
 
-    <!-- Creates a JAR file -->
-    <target name="jarfile" description="Archives the code" depends="compile">
-        <jar destfile="${build.dir}/${project.name}-${version}.jar" basedir="build/classes" />
+    <target name="jarfile" description="Creates the jaaaar" depends="compile">
+        <jar destfile="${build.dir}/${project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+                <attribute name="Class-Path" value="${lib.dir} ${resources.dir}"/>
+            </manifest>
+            <zipgroupfileset dir="${lib.dir}" includes="*.jar"/>
+            <fileset dir=".">
+                <include name="**/${resources.dir}/**"/>
+            </fileset>
+        </jar>
     </target>
-
-    <!-- Removes the build directory -->
-    <target name="clean" description="Clean up" depends="init">
-        <delete dir="build" />
-    </target>
-
 </project>
